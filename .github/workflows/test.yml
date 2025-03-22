@@ -37,23 +37,12 @@ jobs:
         run: dotnet build --no-restore
         working-directory: ./MyConsoleApp
 
-      - name: Test
-        run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
-        working-directory: ./MyConsoleApp
-
-      - name: Install ReportGenerator
-        run: dotnet tool install -g dotnet-reportgenerator-globaltool
-      
-      - name: Add .dotnet/tools to PATH
-        run: echo "$env:USERPROFILE\.dotnet\tools" | Out-File -Append $env:GITHUB_PATH     
-
-      - name: Generate HTML report
-        run: reportgenerator -reports:"TestResults/test-results.trx" -targetdir:"TestResults/html" -reporttypes:Html
+      - name: Run xUnit tests
+        run: dotnet test --no-build --logger:"xunit;LogFilePath=test_result.xml"
         working-directory: ./MyConsoleApp/MyTest
-
-      - name: Upload HTML report
-        uses: actions/upload-artifact@v4
+      
+      - name: Publish test results as GitHub report
+        uses: EnricoMi/publish-unit-test-result-action/windows@v2
+        if: always()
         with:
-          name: test-report-html
-          path: ./MyConsoleApp/MyTest/TestResults/html
-        
+          files: ./MyConsoleApp/MyTest/test_result.xml

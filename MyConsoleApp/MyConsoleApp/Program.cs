@@ -10,8 +10,8 @@ namespace MyConsoleApp
             int result = myCalculator.Add(1, 2);
             Console.WriteLine(result);
 
-            UseLocaldll useLocaldll = new UseLocaldll();
-            useLocaldll.SomeMethod();
+            //UseLocaldll useLocaldll = new UseLocaldll();
+            //useLocaldll.SomeMethod();
         }
     }
 }

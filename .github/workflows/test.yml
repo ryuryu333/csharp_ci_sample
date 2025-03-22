@@ -29,10 +29,6 @@ jobs:
         with:
           dotnet-version: '5.x'
 
-      - name: Install xUnit logger
-        run: dotnet add MyTest/MyTest.csproj package xunit.logger
-        working-directory: ./MyConsoleApp
-
       - name: Restore dependencies
         run: dotnet restore
         working-directory: ./MyConsoleApp

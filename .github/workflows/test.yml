@@ -49,15 +49,12 @@ jobs:
 
       - name: Check for .trx file
         run: dir .
-        working-directory: ./MyConsoleApp
-
-      - name: Check for .trx file
-        run: dir .
-        working-directory: ./MyConsoleApp/MyTest
+        working-directory: ./MyConsoleApp/MyTest/TestResults
 
       - name: Generate HTML report
-        run: reportgenerator -reports:"MyConsoleApp/TestResults/test-results.trx" -targetdir:"MyConsoleApp/TestResults/html" -reporttypes:Html
-      
+        run: reportgenerator -reports:"TestResults/test-results.trx" -targetdir:"TestResults/html" -reporttypes:Html
+        working-directory: ./MyConsoleApp/MyTest
+
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:

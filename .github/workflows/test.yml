@@ -7,8 +7,6 @@ on:
       - 'develop/**'
     paths:
       - '**.cs'
-    paths-ignore:
-      - 'docs/**'
   pull_request:
     branches:
       - main
@@ -34,4 +32,3 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
-        

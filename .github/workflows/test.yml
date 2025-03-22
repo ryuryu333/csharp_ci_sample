@@ -36,3 +36,5 @@ jobs:
       - name: Test
         run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
         working-directory: ./MyConsoleApp
+
+        

@@ -23,11 +23,11 @@ namespace MyTest
         public void AddTestLog()
         {
             Assert.Equal(3, _calculator.Add(1, 2));
-            _output.WriteLine("ログを表示できます");
-            Console.WriteLine("こっちは表示されない");
+            _output.WriteLine("Log output is visible");
+            Console.WriteLine("This one will not be shown");
         }
 
-        [Fact(DisplayName = "好きな名前を表示できる")]
+        [Fact(DisplayName = "Custom display name is shown")]
         public void AddTestDisplayName()
         {
             Assert.Equal(3, _calculator.Add(1, 2));

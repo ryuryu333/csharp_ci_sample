@@ -36,10 +36,6 @@
     <Reference Include="CeVIO.KnobControl">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\CeVIO\CeVIO AI\CeVIO.KnobControl.dll</HintPath>
     </Reference>
-    <Reference Include="CeVIO.Talk.RemoteService2, Version=3.0.1.0, Culture=neutral, PublicKeyToken=85bf362f6144cc53, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\CeVIO\CeVIO AI\CeVIO.Talk.RemoteService2.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,7 +49,6 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UseLocaldll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

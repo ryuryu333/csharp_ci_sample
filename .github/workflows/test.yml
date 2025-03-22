@@ -47,10 +47,17 @@ jobs:
       - name: Add .dotnet/tools to PATH
         run: echo "$env:USERPROFILE\.dotnet\tools" | Out-File -Append $env:GITHUB_PATH     
 
-      - name: Generate HTML report
-        run: reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/html" -reporttypes:Html
+      - name: Check for .trx file
+        run: dir .
         working-directory: ./MyConsoleApp
 
+      - name: Check for .trx file
+        run: dir .
+        working-directory: ./MyConsoleApp/MyTest
+
+      - name: Generate HTML report
+        run: reportgenerator -reports:"MyConsoleApp/TestResults/test-results.trx" -targetdir:"MyConsoleApp/TestResults/html" -reporttypes:Html
+      
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:

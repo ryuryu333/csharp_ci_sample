@@ -27,9 +27,12 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
+        working-directory: ./MyConsoleApp
 
       - name: Build
         run: dotnet build --no-restore
+        working-directory: ./MyConsoleApp
 
       - name: Test
         run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
+        working-directory: ./MyConsoleApp

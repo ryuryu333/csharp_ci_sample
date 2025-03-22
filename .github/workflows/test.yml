@@ -45,10 +45,9 @@ jobs:
         run: dotnet tool install -g dotnet-reportgenerator-globaltool
       
       - name: Generate HTML report
-        run: reportgenerator -reports:./MyConsoleApp/TestResults/*.trx -targetdir:./MyConsoleApp/TestResults/html -reporttypes:Html
-        env:
-          PATH: ${{ runner.tool_cache }}/dotnet/tools:${{ env.PATH }}
-      
+        run: dotnet tool run reportgenerator -reports:"TestResults/*.trx" -targetdir:"TestResults/html" -reporttypes:Html
+        working-directory: ./MyConsoleApp
+
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:
